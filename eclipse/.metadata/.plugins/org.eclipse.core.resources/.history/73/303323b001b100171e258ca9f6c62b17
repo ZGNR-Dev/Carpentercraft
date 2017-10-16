@@ -1,0 +1,269 @@
+package at.thoms;
+
+import at.thoms.blocks.*;
+import at.thoms.blocks.blocktypes.blockbasic;
+import at.thoms.blocks.blocktypes.blockprimitivemachine;
+import at.thoms.clientonly.gui.guiextracrafting;
+import at.thoms.items.*;
+import at.thoms.items.itemtypes.itembasic;
+import at.thoms.oredict.oredictionaryhandler;
+import at.thoms.proxy.proxyclient;
+import at.thoms.proxy.proxycommons;
+import at.thoms.utils.ModBlocks;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
+import net.minecraft.item.ItemBlock;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.Mod.EventHandler;
+import net.minecraftforge.fml.common.SidedProxy;
+import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.oredict.OreDictionary;
+
+
+@Mod(modid = Carpentercraft.MODID, version = Carpentercraft.VERSION)
+public class Carpentercraft {
+
+    public static final String MODID = "carpentercraft";
+    public static final String VERSION = "0.0.4p-a";
+    
+    /* Event-Handler */
+
+    
+    
+    /* Gui */
+    
+    //public static final int guiextracrafting = 1;
+    
+    /* References */
+    
+    @Mod.Instance(Carpentercraft.MODID)
+    public static Carpentercraft instance;
+    
+    /* Proxys */
+    
+    @SidedProxy(clientSide = "at.thoms.proxy.proxyclient", serverSide = "at.thoms.proxy.proxyserver")
+    public static proxycommons proxy;
+    
+    
+    /* Ores */
+    
+    public static orecopper orecopper = new orecopper();
+    public static orefakegold orefakegold = new orefakegold();
+    public static oregold oregold = new oregold();
+    public static oreiron oreiron = new oreiron();
+    public static oreosmium oreosmium = new oreosmium();
+    public static oretin oretin = new oretin();
+    public static oresilver oresilver = new oresilver();
+    public static oretungsten oretungsten = new oretungsten();
+    public static oremystery oremystery = new oremystery();
+    
+    /* Blöcke */
+    
+    public static sandglow sandglow = new sandglow();
+    public static glasglow glasglow = new glasglow();
+    public static glassglowraw glassglowraw = new glassglowraw();
+    public static glasshardened glasshardened = new glasshardened();
+    public static woodbloodtier1 woodbloodtier1 = new woodbloodtier1();
+    public static extracrafting extracrafting = new extracrafting();
+    public static ultracrafting ultracrafting = new ultracrafting();
+    
+    /* Ingots */
+    
+    public static ingotbonium ingotbonium = new ingotbonium();
+    public static ingotbronze ingotbronze = new ingotbronze();
+    public static ingotcarbonium ingotcarbonium = new ingotcarbonium();
+    public static ingotcopper ingotcopper = new ingotcopper();
+    public static ingotdiamondium ingotdiamondium = new ingotdiamondium();
+    public static ingotenderium ingotenderium = new ingotenderium();
+    public static ingotfire ingotfire = new ingotfire();
+    public static ingotlumium ingotlumium = new ingotlumium();
+    public static ingotosmium ingotosmium = new ingotosmium();
+    public static ingotsignalum ingotsignalum = new ingotsignalum();
+    public static ingotsilver ingotsilver = new ingotsilver();
+    public static ingotsteel ingotsteel = new ingotsteel();
+    public static ingottin ingottin = new ingottin();
+    
+    /* Dusts */
+    
+    public static dustdiamondium dustdiamondium = new dustdiamondium();
+    public static dustenderium dustenderium = new dustenderium();
+    public static dustfire dustfire = new dustfire();
+    public static dustlumium dustlumium = new dustlumium();
+    public static dustsand dustsand = new dustsand();
+    public static dustsandglow dustsandglow = new dustsandglow();
+    public static dustsignalum dustsignalum = new dustsignalum();
+    public static duststeel duststeel = new duststeel();
+    
+    /* Items */
+    
+    public static pelletcoal pelletcoal = new pelletcoal();
+    
+    
+    @EventHandler
+	public void preInit(FMLPreInitializationEvent preinit){
+    System.out.println("Was machst du heute noch so");
+    
+    proxy.TileEntityRegistering();
+    ModBlocks.init();
+    
+    	
+    /* Ore-Registry */
+    
+    blockRegister(orecopper);
+    blockRegister(orefakegold);
+    blockRegister(oregold);
+    blockRegister(oreiron);
+    blockRegister(oreosmium);
+    blockRegister(oretin);
+    blockRegister(oretungsten);
+    blockRegister(oresilver);
+    blockRegister(oremystery);
+    
+    /* Block-Registry */
+    
+    blockRegister(glasglow);
+    blockRegister(glassglowraw);
+    blockRegister(sandglow);
+    blockRegister(glasshardened);
+    blockRegister(woodbloodtier1);
+    blockRegister(extracrafting);
+    blockRegister(ultracrafting);
+    
+    /* Ingot-Registry */
+    
+    GameRegistry.register(ingotbonium);
+    GameRegistry.register(ingotbronze);
+    GameRegistry.register(ingotcarbonium);
+    GameRegistry.register(ingotcopper);
+    GameRegistry.register(ingotdiamondium);
+    GameRegistry.register(ingotenderium);
+    GameRegistry.register(ingotfire);
+    GameRegistry.register(ingotlumium);
+    GameRegistry.register(ingotosmium);
+    GameRegistry.register(ingotsignalum);
+    GameRegistry.register(ingotsilver);
+    GameRegistry.register(ingotsteel);
+    GameRegistry.register(ingottin);
+    
+    /* Dust-Registry */
+    
+    GameRegistry.register(dustdiamondium);
+    GameRegistry.register(dustenderium);
+    GameRegistry.register(dustfire);
+    GameRegistry.register(dustlumium);
+    GameRegistry.register(dustsand);
+    GameRegistry.register(dustsandglow);
+    GameRegistry.register(dustsignalum);
+    GameRegistry.register(duststeel);
+    
+    /* Item-Registry */
+    
+    GameRegistry.register(pelletcoal);
+    
+    }
+    
+    public static void blockRegister(blockbasic block){
+    	GameRegistry.register(block);
+    	GameRegistry.register(new ItemBlock(block).setRegistryName(block.getRegistryName()));
+    }
+    
+//    public static void blockPrimitiveMachineRegister(blockprimitivemachine block){
+//    	GameRegistry.register(block);
+//    	GameRegistry.register(new ItemBlock(block).setRegistryName(block.getRegistryName()));
+//    }
+    
+    @EventHandler
+    public void init(FMLInitializationEvent init){
+    System.out.println("Folow me on Curse");
+
+    proxy.clientRegistering();
+    oredictionaryhandler.registerOreDictionary();
+
+    
+    	ItemStack stackIron_Block  = new ItemStack(Blocks.IRON_BLOCK);
+		ItemStack stackGold_Block = new ItemStack(Blocks.GOLD_BLOCK);
+		ItemStack stackDiamond_Block = new ItemStack(Blocks.DIAMOND_BLOCK);
+		ItemStack stackNether_Star = new ItemStack(Items.NETHER_STAR);
+		
+		/* Items */
+		GameRegistry.addRecipe(stackNether_Star, "igi", "gdg", "igi",
+				'i', stackIron_Block, 'g', stackGold_Block, 'd', stackDiamond_Block);
+		
+		ItemStack stackDiamond = new ItemStack(Items.DIAMOND);
+	    ItemStack stackBlaze_Powder = new ItemStack(Items.BLAZE_POWDER);
+	    ItemStack stackGold_Ingot = new ItemStack(Items.GOLD_INGOT);
+	    ItemStack stackingotfire = new ItemStack(ingotfire);
+	    ItemStack stackingotdiamondium = new ItemStack(ingotdiamondium);
+	    ItemStack stackStone = new ItemStack(Blocks.STONE);
+	    ItemStack stackingotcopper = new ItemStack(ingotcopper);
+	    //ItemStack stackorex2 = new ItemStack(orex2);
+	    //ItemStack stackorex3 = new ItemStack(orex3);
+	    //ItemStack stackupgradex2 = new ItemStack(upgradex2);
+	    ItemStack stackCoal = new ItemStack(Items.COAL);
+	    ItemStack stackpelletccoal = new ItemStack(pelletcoal, 9);
+	    ItemStack stackIron_Ingot = new ItemStack(Items.IRON_INGOT);
+	    ItemStack stackingotsteel = new ItemStack(ingotsteel);
+	    ItemStack stackpelletcoal = new ItemStack(pelletcoal);
+	    ItemStack stackingottin = new ItemStack(ingottin);
+	    ItemStack stackingotbronze = new ItemStack(ingotbronze, 4);
+	    ItemStack stackingotosmium = new ItemStack(ingotosmium);
+	    //ItemStack stackingottungsten = new ItemStack(ingottungsten);
+	    ItemStack stackingotsilver = new ItemStack(ingotsilver);
+	    ItemStack stackRedstone_Block = new ItemStack(Blocks.REDSTONE_BLOCK);
+	    ItemStack stackRedstone = new ItemStack(Items.REDSTONE);
+	    ItemStack stackGlowstone = new ItemStack(Blocks.GLOWSTONE);
+	    ItemStack stackingotsignalum = new ItemStack(ingotsignalum, 4);
+	    ItemStack stackingotlumium = new ItemStack(ingotlumium, 4);
+	    ItemStack stackGold_Nugget = new ItemStack(Items.GOLD_NUGGET);
+	    ItemStack stackingotenderium = new ItemStack(ingotenderium, 4);
+	    ItemStack stackEnder_Pearl = new ItemStack(Items.ENDER_PEARL);
+	    ItemStack stackBone = new ItemStack(Items.BONE);
+	    ItemStack stackingotbonium = new ItemStack(ingotbonium);
+	    ItemStack stackingotcarbonium = new ItemStack(ingotcarbonium);
+	    ItemStack stackingotosmiuum = new ItemStack(ingotosmium);
+	    ItemStack stackoreosmium = new ItemStack(oreosmium);
+	    ItemStack stackoresilver = new ItemStack(oresilver);
+	    ItemStack stackoretin = new ItemStack(oretin);
+	    
+	    GameRegistry.addRecipe(stackingotfire, new Object[] { "fff", "dgd", "fff", 
+	      Character.valueOf('f'), stackBlaze_Powder, Character.valueOf('d'), stackDiamond, Character.valueOf('g'), stackGold_Ingot });
+	    GameRegistry.addRecipe(stackingotdiamondium, new Object[] { "dgd", "gdg", "dgd", 
+	      Character.valueOf('d'), stackDiamond, Character.valueOf('g'), stackGold_Ingot });
+	    GameRegistry.addRecipe(stackingotsteel, new Object[] { "ip ", "p  ", "   ", 
+	      Character.valueOf('i'), stackIron_Ingot, Character.valueOf('p'), stackpelletcoal });
+	    GameRegistry.addRecipe(stackingotbronze, new Object[] { "ct ", "cc ", "   ", 
+	      Character.valueOf('c'), stackingotcopper, Character.valueOf('t'), stackingottin });
+	    GameRegistry.addRecipe(stackingotlumium, new Object[] { "tt ", "ts ", "g  ", 
+	      Character.valueOf('t'), stackingottin, Character.valueOf('s'), stackingotsilver, Character.valueOf('g'), stackGlowstone });
+	    GameRegistry.addRecipe(stackingotsignalum, new Object[] { "cc ", "cs ", "br ", 
+	      Character.valueOf('c'), stackingotcopper, Character.valueOf('s'), stackingotsilver, Character.valueOf('b'), stackRedstone_Block, Character.valueOf('r'), stackRedstone });
+	    GameRegistry.addRecipe(stackingotenderium, new Object[] { "ttp", "ssp", "pp ", 
+	      Character.valueOf('s'), stackingotsilver, Character.valueOf('p'), stackEnder_Pearl });
+	    GameRegistry.addRecipe(stackingotbonium, new Object[] { " b ", "bib", " b ", 
+	      Character.valueOf('b'), stackBone, Character.valueOf('i'), stackIron_Ingot });
+	    GameRegistry.addRecipe(stackingotcarbonium, new Object[] { "pbp", "bib", "pbp", 
+	      Character.valueOf('p'), stackpelletcoal, Character.valueOf('b'), stackBone, Character.valueOf('i'), stackIron_Ingot });
+	    	    
+	    GameRegistry.addShapelessRecipe(stackpelletccoal, new Object[] { stackCoal });
+	    
+	    GameRegistry.addSmelting(orecopper, stackingotcopper, 100.0F);
+	    GameRegistry.addSmelting(oretin, stackingottin, 100.0F);
+	    GameRegistry.addSmelting(oreosmium, stackingotosmium, 100.0F);
+	    GameRegistry.addSmelting(orefakegold, stackGold_Nugget, 100.0F);
+	    GameRegistry.addSmelting(oregold, stackGold_Ingot, 100.0F);
+	    GameRegistry.addSmelting(oreiron, stackIron_Ingot, 100.0F);
+
+	System.out.println("Donate to enter the free giveaway!");
+    }
+    
+    @EventHandler
+    public void postinit(FMLPostInitializationEvent postinit){
+    	
+    	System.out.println("Bereit, die Welt zu übernehmen?");
+    	
+    }
+}

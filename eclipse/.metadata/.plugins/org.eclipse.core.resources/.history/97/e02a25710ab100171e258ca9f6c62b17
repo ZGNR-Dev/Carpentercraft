@@ -1,0 +1,54 @@
+package at.thoms.tileentitys;
+
+import javax.swing.JOptionPane;
+
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.tileentity.TileEntity;
+
+public class TileEnitiycookieclicker extends TileEntity {
+
+	private int count;
+	private int isalreadyp;
+	private int isalreadyn;
+
+	@Override
+	public NBTTagCompound writeToNBT(NBTTagCompound compound) {
+		compound.setInteger("count", count);
+		return super.writeToNBT(compound);
+	}
+	
+	@Override
+	public void readFromNBT(NBTTagCompound compound) {
+		count = compound.getInteger("count");
+		super.readFromNBT(compound);
+	}
+	
+	public int getCount() {
+		return count;
+	}
+	
+	public void incrementCount() {
+		count++;
+		markDirty();
+	}
+	
+	public void decrementCount() {
+		count--;
+		markDirty();
+	}
+	
+	public void surprise() {
+		if(count >= 1337){
+			JOptionPane.showMessageDialog(null, "You have found the positive surprise");
+			markDirty();
+		}
+	}
+
+	public void urbad(){
+		if(count >= -1337 && isalreadyn >= 1){
+			JOptionPane.showMessageDialog(null, "You have found the negative surprise. U r bad");
+			isalreadyn++;
+			markDirty();
+		}
+	}
+}

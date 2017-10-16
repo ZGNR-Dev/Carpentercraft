@@ -1,0 +1,16 @@
+[
+{
+  "modid": "carpentercraft",
+  "name": "Carpentercraft",
+  "description": "From Log to Stick.",
+  "version": "${0.0.3p-a}",
+  "mcversion": "${1.10.2}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Thom S."],
+  "credits": "DLPKarl for many of the textures",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]

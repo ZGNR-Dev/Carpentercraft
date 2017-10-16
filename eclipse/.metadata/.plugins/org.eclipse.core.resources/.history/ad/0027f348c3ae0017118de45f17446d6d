@@ -1,0 +1,9 @@
+package at.thoms.blocks.blocktypes;
+
+import net.minecraft.tileentity.TileEntity;
+
+public abstract class blockprimitivemachine<te extends TileEntity> extends blockbasic {
+
+	
+}
+
