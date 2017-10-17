@@ -4,6 +4,7 @@ import at.thoms.blocks.*;
 import at.thoms.blocks.blocktypes.blockbasic;
 import at.thoms.blocks.blocktypes.blockprimitivemachine;
 import at.thoms.clientonly.gui.guiextracrafting;
+import at.thoms.clientonly.gui.guihandler;
 import at.thoms.items.*;
 import at.thoms.items.itemtypes.itembasic;
 import at.thoms.oredict.oredictionaryhandler;
@@ -20,6 +21,7 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.OreDictionary;
 
@@ -114,6 +116,7 @@ public class Carpentercraft {
     
     proxy.TileEntityRegistering();
     ModBlocks.init();
+    NetworkRegistry.INSTANCE.registerGuiHandler(this, new guihandler());
     
     	
     /* Ore-Registry */

@@ -2,109 +2,84 @@ package at.thoms.container;
 
 import at.thoms.tileentitys.TileEntityultracrafting;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Items;
+import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.IInventory;
+import net.minecraft.inventory.InventoryCraftResult;
+import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.inventory.Slot;
+import net.minecraft.inventory.SlotCrafting;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumFacing;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
+import scala.reflect.internal.Trees.New;
 
-/**
- * Container which says where the slots are for the inventory to handle it
- * @author CJMinecraft
- *
- */
 public class containerultracrafting extends Container {
+	
+    public InventoryCrafting x4craftmatrix = new InventoryCrafting(this, 4, 4);
+    public IInventory x4craftresult = new InventoryCraftResult();
 
-	/**
-	 * This tile entity and the item handler (inventory)
-	 */
-	private TileEntityultracrafting uc;
-	private IItemHandler handler;
 
-	/**
-	 * Tells the container where the slots are
-	 * @param playerInv The player's inventory
-	 * @param te The tile entity
-	 */
-	public containerultracrafting(IInventory playerInv, TileEntityultracrafting uc) {
-		this.uc = uc;
-		this.handler = uc.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null); //Gets the inventory from our tile entity
-
-		//Our tile entity slots
-		this.addSlotToContainer(new SlotItemHandler(handler, 0, 62, 17));
-		this.addSlotToContainer(new SlotItemHandler(handler, 1, 80, 17));
-		this.addSlotToContainer(new SlotItemHandler(handler, 2, 98, 17));
-		this.addSlotToContainer(new SlotItemHandler(handler, 3, 62, 35));
-		this.addSlotToContainer(new SlotItemHandler(handler, 4, 80, 35));
-		this.addSlotToContainer(new SlotItemHandler(handler, 5, 98, 35));
-		this.addSlotToContainer(new SlotItemHandler(handler, 6, 62, 53));
-		this.addSlotToContainer(new SlotItemHandler(handler, 7, 80, 53));
-		this.addSlotToContainer(new SlotItemHandler(handler, 8, 98, 53));
-
-		//The player's inventory slots
-		int xPos = 8; //The x position of the top left player inventory slot on our texture
-		int yPos = 102; //The y position of the top left player inventory slot on our texture
-
-		//Player slots
-		for (int y = 0; y < 3; ++y) {
-			for (int x = 0; x < 9; ++x) {
-				this.addSlotToContainer(new Slot(playerInv, x + y * 9 + 9, xPos + x * 18, yPos + y * 18));
-			}
-		}
-
-		for (int x = 0; x < 9; ++x) {
-			this.addSlotToContainer(new Slot(playerInv, x, xPos + x * 18, yPos + 58));
-		}
-	}
-
-	/**
-	 * Checks that the player can put items in and out of the container
-	 */
 	@Override
-	public boolean canInteractWith(EntityPlayer player) {
-		//return this.uc.isUseableByPlayer(player);
+	public boolean canInteractWith(EntityPlayer playerIn) {
 		return true;
 	}
-
-	/**
-	 * Called when the player presses shift and takes an item out of the container
-	 */
+	
 	@Override
-	public ItemStack transferStackInSlot(EntityPlayer playerIn, int fromSlot) {
-	    ItemStack previous = (ItemStack)null;
-	    Slot slot = (Slot) this.inventorySlots.get(fromSlot);
-
-	    if (slot != null && slot.getHasStack()) {
-	        ItemStack current = slot.getStack();
-	        previous = current.copy();
-
-	        if (fromSlot < this.handler.getSlots()) {
-	            // From the block breaker inventory to player's inventory
-	            if (!this.mergeItemStack(current, handler.getSlots(), handler.getSlots() + 36, true))
-	                return (ItemStack)null;
-	        } else {
-	            // From the player's inventory to block breaker's inventory
-	        	if(current.getItem() == Items.ENCHANTED_BOOK) {
-	        		if(!this.mergeItemStack(current, 9, handler.getSlots(), false))
-	        			return (ItemStack)null;
-	        	}
-	            if (!this.mergeItemStack(current, 0, handler.getSlots(), false))
-	            	return (ItemStack)null;
-	        }
-
-	        if (current.stackSize == 0) //Use func_190916_E() instead of stackSize 1.11 only 1.11.2 use getCount()
-	            slot.putStack((ItemStack)null); //Use ItemStack.field_190927_a instead of (ItemStack)null for a blank item stack. In 1.11.2 use ItemStack.EMPTY
-	        else
-	            slot.onSlotChanged();
-
-	        if (current.stackSize == previous.stackSize)
-	            return null;
-	        //slot.onTake(playerIn, current);
-	    }
-	    return previous;
+	public ItemStack transferStackInSlot(EntityPlayer player, int index) {
+		ItemStack itemstack = null;
+		Slot slot = inventorySlots.get(index);
+	
+		if (slot != null && slot.getHasStack()) {
+			ItemStack itemstack1 = slot.getStack();
+			itemstack = itemstack1.copy();
+	
+			int containerSlots = inventorySlots.size() - player.inventory.mainInventory.length;
+	
+			if (index < containerSlots) {
+				if (!this.mergeItemStack(itemstack1, containerSlots, inventorySlots.size(), true)) {
+					return null;
+				}
+			} else if (!this.mergeItemStack(itemstack1, 0, containerSlots, false)) {
+				return null;
+			}
+	
+			if (itemstack1.stackSize == 0) {
+				slot.putStack(null);
+			} else {
+				slot.onSlotChanged();
+			}
+	
+			if (itemstack1.stackSize == itemstack.stackSize) {
+				return null;
+			}
+	
+			slot.onPickupFromSlot(player, itemstack1);
+		}
+	
+		return itemstack;
 	}
-
+	
+	public containerultracrafting(InventoryPlayer playerInv, final TileEntityultracrafting ultracrafting) {
+		IItemHandler inventory = ultracrafting.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, EnumFacing.NORTH);
+		addSlotToContainer(new SlotItemHandler(inventory, 0, 80, 35) {
+			@Override
+			public void onSlotChanged() {
+				ultracrafting.markDirty();
+			}
+		});
+	
+		for (int i = 0; i < 3; i++) {
+			for (int j = 0; j < 9; j++) {
+				addSlotToContainer(new Slot(playerInv, j + i * 9 + 9, 8 + j * 18, 84 + i * 18));
+			}
+		}
+	
+		for (int k = 0; k < 9; k++) {
+			addSlotToContainer(new Slot(playerInv, k, 8 + k * 18, 142));
+		}
+	}
+	
 }

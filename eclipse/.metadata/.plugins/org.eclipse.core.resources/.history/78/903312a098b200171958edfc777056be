@@ -65,7 +65,8 @@ public class containerultracrafting extends Container {
 	 */
 	@Override
 	public boolean canInteractWith(EntityPlayer player) {
-		return this.uc.isUseableByPlayer(player);
+		//return this.uc.isUseableByPlayer(player);
+		return true;
 	}
 
 	/**
@@ -101,7 +102,7 @@ public class containerultracrafting extends Container {
 
 	        if (current.stackSize == previous.stackSize)
 	            return null;
-	        slot.onTake(playerIn, current);
+	        //slot.onTake(playerIn, current);
 	    }
 	    return previous;
 	}

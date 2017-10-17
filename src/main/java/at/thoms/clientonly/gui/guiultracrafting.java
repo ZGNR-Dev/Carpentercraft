@@ -10,8 +10,8 @@ import net.minecraft.util.ResourceLocation;
 
 public class guiultracrafting extends GuiContainer {
 	private InventoryPlayer playerInv;
-	private static final ResourceLocation guitextureultracrafting = new ResourceLocation(Carpentercraft.MODID, "textures/gui/ultracrafting.png");
-
+	private static final ResourceLocation bgtextureultracrafting = new ResourceLocation(Carpentercraft.MODID, "textures/gui/ultracrafting.png");
+		
 	public guiultracrafting(Container container, InventoryPlayer playerInv) {
 		super(container);
 		this.playerInv = playerInv;
@@ -20,7 +20,7 @@ public class guiultracrafting extends GuiContainer {
 	@Override
 	protected void drawGuiContainerBackgroundLayer(float partialTicks, int mouseX, int mouseY) {
 		GlStateManager.color(1, 1, 1, 1);
-		mc.getTextureManager().bindTexture(guitextureultracrafting);
+		mc.getTextureManager().bindTexture(bgtextureultracrafting);
 		int x = (width - xSize) / 2;
 		int y = (height - ySize) / 2;
 		drawTexturedModalRect(x, y, 0, 0, xSize, ySize);
