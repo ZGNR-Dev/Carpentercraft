@@ -7,7 +7,6 @@ import at.thoms.clientonly.gui.guiextracrafting;
 import at.thoms.clientonly.gui.guihandler;
 import at.thoms.items.*;
 import at.thoms.items.itemtypes.itembasic;
-import at.thoms.oredict.craftingmanager;
 import at.thoms.oredict.oredictionaryhandler;
 import at.thoms.proxy.proxyclient;
 import at.thoms.proxy.proxycommons;
@@ -196,8 +195,80 @@ public class Carpentercraft {
 
     proxy.clientRegistering();
     oredictionaryhandler.registerOreDictionary();
-    craftingmanager.craftingregister();
+
     
+    	ItemStack stackIron_Block  = new ItemStack(Blocks.IRON_BLOCK);
+		ItemStack stackGold_Block = new ItemStack(Blocks.GOLD_BLOCK);
+		ItemStack stackDiamond_Block = new ItemStack(Blocks.DIAMOND_BLOCK);
+		ItemStack stackNether_Star = new ItemStack(Items.NETHER_STAR);
+		
+		/* Items */
+		GameRegistry.addRecipe(stackNether_Star, "igi", "gdg", "igi",
+				'i', stackIron_Block, 'g', stackGold_Block, 'd', stackDiamond_Block);
+		
+		ItemStack stackDiamond = new ItemStack(Items.DIAMOND);
+	    ItemStack stackBlaze_Powder = new ItemStack(Items.BLAZE_POWDER);
+	    ItemStack stackGold_Ingot = new ItemStack(Items.GOLD_INGOT);
+	    ItemStack stackingotfire = new ItemStack(ingotfire);
+	    ItemStack stackingotdiamondium = new ItemStack(ingotdiamondium);
+	    ItemStack stackStone = new ItemStack(Blocks.STONE);
+	    ItemStack stackingotcopper = new ItemStack(ingotcopper);
+	    //ItemStack stackorex2 = new ItemStack(orex2);
+	    //ItemStack stackorex3 = new ItemStack(orex3);
+	    //ItemStack stackupgradex2 = new ItemStack(upgradex2);
+	    ItemStack stackCoal = new ItemStack(Items.COAL);
+	    ItemStack stackpelletccoal = new ItemStack(pelletcoal, 9);
+	    ItemStack stackIron_Ingot = new ItemStack(Items.IRON_INGOT);
+	    ItemStack stackingotsteel = new ItemStack(ingotsteel);
+	    ItemStack stackpelletcoal = new ItemStack(pelletcoal);
+	    ItemStack stackingottin = new ItemStack(ingottin);
+	    ItemStack stackingotbronze = new ItemStack(ingotbronze, 4);
+	    ItemStack stackingotosmium = new ItemStack(ingotosmium);
+	    //ItemStack stackingottungsten = new ItemStack(ingottungsten);
+	    ItemStack stackingotsilver = new ItemStack(ingotsilver);
+	    ItemStack stackRedstone_Block = new ItemStack(Blocks.REDSTONE_BLOCK);
+	    ItemStack stackRedstone = new ItemStack(Items.REDSTONE);
+	    ItemStack stackGlowstone = new ItemStack(Blocks.GLOWSTONE);
+	    ItemStack stackingotsignalum = new ItemStack(ingotsignalum, 4);
+	    ItemStack stackingotlumium = new ItemStack(ingotlumium, 4);
+	    ItemStack stackGold_Nugget = new ItemStack(Items.GOLD_NUGGET);
+	    ItemStack stackingotenderium = new ItemStack(ingotenderium, 4);
+	    ItemStack stackEnder_Pearl = new ItemStack(Items.ENDER_PEARL);
+	    ItemStack stackBone = new ItemStack(Items.BONE);
+	    ItemStack stackingotbonium = new ItemStack(ingotbonium);
+	    ItemStack stackingotcarbonium = new ItemStack(ingotcarbonium);
+	    ItemStack stackingotosmiuum = new ItemStack(ingotosmium);
+	    ItemStack stackoreosmium = new ItemStack(oreosmium);
+	    ItemStack stackoresilver = new ItemStack(oresilver);
+	    ItemStack stackoretin = new ItemStack(oretin);
+	    
+	    GameRegistry.addRecipe(stackingotfire, new Object[] { "fff", "dgd", "fff", 
+	      Character.valueOf('f'), stackBlaze_Powder, Character.valueOf('d'), stackDiamond, Character.valueOf('g'), stackGold_Ingot });
+	    GameRegistry.addRecipe(stackingotdiamondium, new Object[] { "dgd", "gdg", "dgd", 
+	      Character.valueOf('d'), stackDiamond, Character.valueOf('g'), stackGold_Ingot });
+	    GameRegistry.addRecipe(stackingotsteel, new Object[] { "ip ", "p  ", "   ", 
+	      Character.valueOf('i'), stackIron_Ingot, Character.valueOf('p'), stackpelletcoal });
+	    GameRegistry.addRecipe(stackingotbronze, new Object[] { "ct ", "cc ", "   ", 
+	      Character.valueOf('c'), stackingotcopper, Character.valueOf('t'), stackingottin });
+	    GameRegistry.addRecipe(stackingotlumium, new Object[] { "tt ", "ts ", "g  ", 
+	      Character.valueOf('t'), stackingottin, Character.valueOf('s'), stackingotsilver, Character.valueOf('g'), stackGlowstone });
+	    GameRegistry.addRecipe(stackingotsignalum, new Object[] { "cc ", "cs ", "br ", 
+	      Character.valueOf('c'), stackingotcopper, Character.valueOf('s'), stackingotsilver, Character.valueOf('b'), stackRedstone_Block, Character.valueOf('r'), stackRedstone });
+	    GameRegistry.addRecipe(stackingotenderium, new Object[] { "ttp", "ssp", "pp ", 
+	      Character.valueOf('s'), stackingotsilver, Character.valueOf('p'), stackEnder_Pearl });
+	    GameRegistry.addRecipe(stackingotbonium, new Object[] { " b ", "bib", " b ", 
+	      Character.valueOf('b'), stackBone, Character.valueOf('i'), stackIron_Ingot });
+	    GameRegistry.addRecipe(stackingotcarbonium, new Object[] { "pbp", "bib", "pbp", 
+	      Character.valueOf('p'), stackpelletcoal, Character.valueOf('b'), stackBone, Character.valueOf('i'), stackIron_Ingot });
+	    	    
+	    GameRegistry.addShapelessRecipe(stackpelletccoal, new Object[] { stackCoal });
+	    
+	    GameRegistry.addSmelting(orecopper, stackingotcopper, 100.0F);
+	    GameRegistry.addSmelting(oretin, stackingottin, 100.0F);
+	    GameRegistry.addSmelting(oreosmium, stackingotosmium, 100.0F);
+	    GameRegistry.addSmelting(orefakegold, stackGold_Nugget, 100.0F);
+	    GameRegistry.addSmelting(oregold, stackGold_Ingot, 100.0F);
+	    GameRegistry.addSmelting(oreiron, stackIron_Ingot, 100.0F);
 
 	System.out.println("Donate to enter the free giveaway!");
     }

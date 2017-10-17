@@ -1,0 +1,22 @@
+package at.thoms.oredict;
+
+import at.thoms.Carpentercraft;
+import net.minecraftforge.oredict.OreDictionary;
+
+public class oredictionaryhandler {
+	
+	public static void registerOreDictionary(){
+		
+		
+		/* Ores */
+		
+		OreDictionary.registerOre("oreCopper", Carpentercraft.orecopper);
+		OreDictionary.registerOre("oreFakegold", Carpentercraft.orefakegold);
+		OreDictionary.registerOre("oreGold", Carpentercraft.oregold);
+		OreDictionary.registerOre("oreIron", Carpentercraft.oreiron);
+		OreDictionary.registerOre("oreOsmum", Carpentercraft.oreosmium);
+		OreDictionary.registerOre("oreTin", Carpentercraft.oretin);
+		OreDictionary.registerOre("oreSilver", Carpentercraft.oresilver);
+	}
+
+}
