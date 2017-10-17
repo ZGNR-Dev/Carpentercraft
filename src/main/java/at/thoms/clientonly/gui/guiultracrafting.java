@@ -1,6 +1,8 @@
 package at.thoms.clientonly.gui;
 
 import at.thoms.Carpentercraft;
+import at.thoms.blocks.ultracrafting;
+import at.thoms.utils.ModBlocks;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.resources.I18n;
@@ -10,8 +12,8 @@ import net.minecraft.util.ResourceLocation;
 
 public class guiultracrafting extends GuiContainer {
 	private InventoryPlayer playerInv;
-	private static final ResourceLocation bgtextureultracrafting = new ResourceLocation(Carpentercraft.MODID, "textures/gui/ultracrafting.png");
-		
+	private static final ResourceLocation bgtextureultracrafting = new ResourceLocation(Carpentercraft.MODID, "textures/gui/pedestal.png");
+
 	public guiultracrafting(Container container, InventoryPlayer playerInv) {
 		super(container);
 		this.playerInv = playerInv;
@@ -32,5 +34,4 @@ public class guiultracrafting extends GuiContainer {
 		fontRendererObj.drawString(name, xSize / 2 - fontRendererObj.getStringWidth(name) / 2, 6, 0x404040);
 		fontRendererObj.drawString(playerInv.getDisplayName().getUnformattedText(), 8, ySize - 94, 0x404040);
 	}
-	
 }

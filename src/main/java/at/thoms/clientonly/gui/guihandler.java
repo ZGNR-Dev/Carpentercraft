@@ -1,7 +1,6 @@
 package at.thoms.clientonly.gui;
 
 import at.thoms.Carpentercraft;
-import at.thoms.*;
 import at.thoms.container.containerextracrafting;
 import at.thoms.container.containerultracrafting;
 import at.thoms.tileentitys.TileEntityextracrafting;
@@ -22,14 +21,14 @@ public class guihandler implements IGuiHandler{
 	
 
 	@Override
-	public Container getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {		//BlockPos pos = new BlockPos(x, y, z);	
+	public Container getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
 		switch(ID){
 		case extracrafting:
 			return new containerextracrafting(player.inventory, (TileEntityextracrafting) world.getTileEntity(new BlockPos(x, y, z)));
 			case ultracrafting:
-			return new containerultracrafting(player.inventory, (TileEntityultracrafting) world.getTileEntity(new BlockPos(x, y, z)));
-			
-		default: return null;
+				return new containerultracrafting(player.inventory, (TileEntityultracrafting)world.getTileEntity(new BlockPos(x, y, z)));
+			default:
+				return null;
 		}
 	}
 
@@ -40,8 +39,7 @@ public class guihandler implements IGuiHandler{
 		case extracrafting:
 			return new guiextracrafting(player.inventory, (TileEntityextracrafting) world.getTileEntity(pos));
 			case ultracrafting:
-			return new guiultracrafting(getServerGuiElement(ID, player, world, x, y, z), player.inventory);
-			
+				return new guiultracrafting(getServerGuiElement(ID, player, world, x, y, z), player.inventory);			
 		default: return null;
 	    }
 	}

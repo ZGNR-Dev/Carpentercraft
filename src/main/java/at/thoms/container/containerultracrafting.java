@@ -3,24 +3,14 @@ package at.thoms.container;
 import at.thoms.tileentitys.TileEntityultracrafting;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.inventory.Container;
-import net.minecraft.inventory.IInventory;
-import net.minecraft.inventory.InventoryCraftResult;
-import net.minecraft.inventory.InventoryCrafting;
-import net.minecraft.inventory.Slot;
-import net.minecraft.inventory.SlotCrafting;
+import net.minecraft.inventory.*;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
-import scala.reflect.internal.Trees.New;
 
 public class containerultracrafting extends Container {
-	
-    public InventoryCrafting x4craftmatrix = new InventoryCrafting(this, 4, 4);
-    public IInventory x4craftresult = new InventoryCraftResult();
-
 
 	@Override
 	public boolean canInteractWith(EntityPlayer playerIn) {
@@ -61,13 +51,13 @@ public class containerultracrafting extends Container {
 	
 		return itemstack;
 	}
-	
-	public containerultracrafting(InventoryPlayer playerInv, final TileEntityultracrafting ultracrafting) {
-		IItemHandler inventory = ultracrafting.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, EnumFacing.NORTH);
+
+	public containerultracrafting(InventoryPlayer playerInv, final TileEntityultracrafting pedestal) {
+		IItemHandler inventory = pedestal.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, EnumFacing.NORTH);
 		addSlotToContainer(new SlotItemHandler(inventory, 0, 80, 35) {
 			@Override
 			public void onSlotChanged() {
-				ultracrafting.markDirty();
+				pedestal.markDirty();
 			}
 		});
 	
@@ -81,5 +71,5 @@ public class containerultracrafting extends Container {
 			addSlotToContainer(new Slot(playerInv, k, 8 + k * 18, 142));
 		}
 	}
-	
+
 }
