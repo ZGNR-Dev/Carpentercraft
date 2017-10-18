@@ -72,6 +72,10 @@ public class Carpentercraft {
     public static glasshardened glasshardened = new glasshardened();
     public static woodbloodtier1 woodbloodtier1 = new woodbloodtier1();
     
+    /* Hölzer */
+    
+    public static woodpinelog woodpinelog = new woodpinelog();
+    
     /* Primitive Maschinen */
     
     public static extracrafting extracrafting = new extracrafting();
@@ -139,6 +143,10 @@ public class Carpentercraft {
     blockRegister(sandglow);
     blockRegister(glasshardened);
     blockRegister(woodbloodtier1);
+    
+    /* Wood-Registry */
+    
+    blockRegister(woodpinelog);
     
     /* PrimitiveMachine-Registry */
     

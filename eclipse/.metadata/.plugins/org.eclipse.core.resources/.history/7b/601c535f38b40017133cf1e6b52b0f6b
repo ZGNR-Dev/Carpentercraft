@@ -1,0 +1,12 @@
+{
+    "parent": "block/cube_all",
+    "textures": {
+    
+        "top": "carpentercraft:blocks/woodpinelog_top",
+        "bottom": "carpentercraft:blocks/woodpinelog_top",
+        "north": "carpentercraft:blocks/woodpinelog_side",
+        "east": "carpentercraft:blocks/woodpinelog_side",
+        "south": "carpentercraft:blocks/woodpineog_side",
+        "west": "carpentercraft:blocks/woodpinelog_side"
+    }
+}

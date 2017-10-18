@@ -49,6 +49,10 @@ public class proxyclient extends proxycommons{
 		registerBlockModel(Carpentercraft.woodbloodtier1);
 		registerBlockModel(Carpentercraft.extracrafting);
 		
+		/* Wood-Registering */
+		
+		registerBlockModel(Carpentercraft.woodpinelog);
+		
 	  /* Primitive Maschine-Registering */
 		
 		registerBlockPrimitiveMachineModel(Carpentercraft.ultracrafting);
