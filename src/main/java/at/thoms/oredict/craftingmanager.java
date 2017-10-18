@@ -7,6 +7,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import at.thoms.Carpentercraft;
 import at.thoms.blocks.*;
 import at.thoms.items.*;
+import at.thoms.oredict.oredictionaryhandler;
 
 public class craftingmanager {
 
@@ -27,7 +28,7 @@ public class craftingmanager {
 	    ItemStack stackStone = new ItemStack(Blocks.STONE);
 	    ItemStack stackingotcopper = new ItemStack(Carpentercraft.ingotcopper);
 	    ItemStack stackCoal = new ItemStack(Items.COAL);
-	    ItemStack stackpelletccoal = new ItemStack(Carpentercraft.pelletcoal, 9);
+	    ItemStack stackpelletccoal = new ItemStack(Carpentercraft.pelletcoal, 8);
 	    ItemStack stackIron_Ingot = new ItemStack(Items.IRON_INGOT);
 	    ItemStack stackingotsteel = new ItemStack(Carpentercraft.ingotsteel);
 	    ItemStack stackpelletcoal = new ItemStack(Carpentercraft.pelletcoal);
@@ -75,6 +76,9 @@ public class craftingmanager {
 	      Character.valueOf('b'), stackBone, Character.valueOf('i'), stackIron_Ingot });
 	    GameRegistry.addRecipe(stackingotcarbonium, new Object[] { "pbp", "bib", "pbp", 
 	      Character.valueOf('p'), stackpelletcoal, Character.valueOf('b'), stackBone, Character.valueOf('i'), stackIron_Ingot });
+	    GameRegistry.addRecipe(stackCoal, new Object[] { "ppp", "p p", "ppp", 
+	  	      Character.valueOf('p'), stackpelletcoal});
+
 	    	    
 	    GameRegistry.addShapelessRecipe(stackpelletccoal, new Object[] { stackCoal });
 	    
