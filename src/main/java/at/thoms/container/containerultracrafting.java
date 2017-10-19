@@ -52,12 +52,12 @@ public class containerultracrafting extends Container {
 		return itemstack;
 	}
 
-	public containerultracrafting(InventoryPlayer playerInv, final TileEntityultracrafting pedestal) {
-		IItemHandler inventory = pedestal.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, EnumFacing.NORTH);
+	public containerultracrafting(InventoryPlayer playerInv, final TileEntityultracrafting ultracrafting) {
+		IItemHandler inventory = ultracrafting.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, EnumFacing.NORTH);
 		addSlotToContainer(new SlotItemHandler(inventory, 0, 80, 35) {
 			@Override
 			public void onSlotChanged() {
-				pedestal.markDirty();
+				ultracrafting.markDirty();
 			}
 		});
 	

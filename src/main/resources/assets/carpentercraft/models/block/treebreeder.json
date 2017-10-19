@@ -1,0 +1,12 @@
+{
+    "parent": "block/cube",
+    "textures": {
+    
+        "up": "carpentercraft:blocks/treebreeder_top",
+        "down": "carpentercraft:blocks/treebreeder_down",
+        "north": "carpentercraft:blocks/treebreeder_front",
+        "east": "carpentercraft:blocks/treebreeder_left",
+        "south": "carpentercraft:blocks/treebreeder_left",
+        "west": "carpentercraft:blocks/treebreeder_left"
+    }
+}

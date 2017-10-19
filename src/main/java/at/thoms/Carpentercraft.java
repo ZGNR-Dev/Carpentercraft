@@ -31,7 +31,7 @@ import net.minecraftforge.oredict.OreDictionary;
 public class Carpentercraft {
 
     public static final String MODID = "carpentercraft";
-    public static final String VERSION = "0.0.4p-a";
+    public static final String VERSION = "0.0.5p-a";
     
     /* Event-Handler */
 
@@ -82,6 +82,7 @@ public class Carpentercraft {
     public static ultracrafting ultracrafting = new ultracrafting();
     public static cookieclicker cookieclicker = new cookieclicker();
     public static pedestal pedestal = new pedestal();
+    public static treebreeder treebreeder = new treebreeder();
     
     /* Ingots */
     
@@ -154,6 +155,7 @@ public class Carpentercraft {
     blockRegister(ultracrafting);
     blockRegister(cookieclicker);
     blockRegister(pedestal);
+    blockRegister(treebreeder);
     
     /* Ingot-Registry */
     

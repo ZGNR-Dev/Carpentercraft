@@ -9,7 +9,6 @@ import at.thoms.clientonly.gui.guihandler;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
-import net.minecraft.util.text.translation.I18n;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -56,6 +55,7 @@ public class proxyclient extends proxycommons{
 	  /* Primitive Maschine-Registering */
 		
 		registerBlockPrimitiveMachineModel(Carpentercraft.ultracrafting);
+		registerBlockPrimitiveMachineModel(Carpentercraft.treebreeder);
 		
 	  /* Ingot-Registering */
 		
@@ -146,11 +146,6 @@ public class proxyclient extends proxycommons{
 	@Override
 	public void serverStarting(FMLServerStartingEvent serverstarting){
 		super.serverStarting(serverstarting);
-	}
-	
-	@Override
-	public String localize(String unlocalized, Object... args) {
-		return I18n.translateToLocalFormatted(unlocalized, args);
 	}
 	
 	

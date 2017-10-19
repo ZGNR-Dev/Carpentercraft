@@ -3,6 +3,7 @@ package at.thoms.proxy;
 import java.lang.ref.Reference;
 
 import at.thoms.tileentitys.TileEntityultracrafting;
+import at.thoms.tileentitys.TileEntitytreebreeder;
 import at.thoms.tileentitys.TileEntityextracrafting;
 import at.thoms.Carpentercraft;
 import at.thoms.blocks.blocktypes.blockbasic;
@@ -35,6 +36,7 @@ public class proxycommons {
     public void TileEntityRegistering(){
     	GameRegistry.registerTileEntity(TileEntityultracrafting.class, Carpentercraft.MODID + ":ultracrafting");
     	GameRegistry.registerTileEntity(TileEntityextracrafting.class, Carpentercraft.MODID + ":extracrafting");
+    	GameRegistry.registerTileEntity(TileEntitytreebreeder.class, Carpentercraft.MODID + ":treebreeder");
     }
     public void registerRenders()
     {
@@ -72,12 +74,4 @@ public class proxycommons {
 	{
 	}
 
-//	public String localize(String string) {
-//		return null;
-//	}
-	
-	public String localize(String unlocalized, Object... args) {
-		return I18n.translateToLocalFormatted(unlocalized, args);
-	}
-	
 }
