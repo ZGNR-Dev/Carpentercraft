@@ -73,8 +73,5 @@ public class proxycommons {
 	public static void registerBlockModel(blockbasic block)
 	{
 	}
-	
-	public String localize(String unlocalized, Object... args) {
-		return I18n.format(unlocalized, args);
-	}
+
 }
