@@ -1,6 +1,7 @@
 package at.thoms.utils;
 
 import at.thoms.blocks.blocktypes.blockbasic;
+import at.thoms.blocks.blocktypes.blockprimitivemachine;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemBlock;
@@ -19,9 +20,14 @@ public class ModBlocks {
 		if (block instanceof blockbasic) {
 			((blockbasic)block).registerItemModel(itemBlock);
 		}
-
+		
+		if (block instanceof blockprimitivemachine){
+			GameRegistry.registerTileEntity(((blockprimitivemachine<?>)block).getTileEntityClass(), block.getRegistryName().toString());
+		}
+	
 		return block;
 	}
+	
 
 	private static <T extends Block> T register(T block) {
 		ItemBlock itemBlock = new ItemBlock(block);

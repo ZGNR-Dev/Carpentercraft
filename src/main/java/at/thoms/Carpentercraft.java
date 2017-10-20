@@ -114,6 +114,7 @@ public class Carpentercraft {
     /* Items */
     
     public static pelletcoal pelletcoal = new pelletcoal();
+    public static bee bee = new bee();
     
     
     @EventHandler
@@ -187,6 +188,10 @@ public class Carpentercraft {
     /* Item-Registry */
     
     GameRegistry.register(pelletcoal);
+    GameRegistry.register(bee);
+    
+    /* Tile_entity */
+    
     
     }
     

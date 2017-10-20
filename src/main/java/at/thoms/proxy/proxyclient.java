@@ -6,6 +6,8 @@ import at.thoms.Carpentercraft;
 import at.thoms.blocks.blocktypes.blockbasic;
 import at.thoms.blocks.blocktypes.blockprimitivemachine;
 import at.thoms.clientonly.gui.guihandler;
+import at.thoms.tileentitys.TileEntityextracrafting;
+import at.thoms.tileentitys.TileEntitytreebreeder;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
@@ -19,6 +21,7 @@ import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.event.FMLServerStoppedEvent;
 import net.minecraftforge.fml.common.event.FMLServerStoppingEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class proxyclient extends proxycommons{
 
@@ -88,6 +91,10 @@ public class proxyclient extends proxycommons{
 		/* Item-Registering */
 		
 		registerItemModel(Carpentercraft.pelletcoal);
+		registerItemModel(Carpentercraft.bee);
+		
+	    /* Tileentity-Registering */
+		
 		
 	}
 	
