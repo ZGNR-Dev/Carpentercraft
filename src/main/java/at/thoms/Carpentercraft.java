@@ -31,7 +31,7 @@ import net.minecraftforge.oredict.OreDictionary;
 public class Carpentercraft {
 
     public static final String MODID = "carpentercraft";
-    public static final String VERSION = "0.0.5p-a";
+    public static final String VERSION = "0.0.5a";
     
     /* Event-Handler */
 

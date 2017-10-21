@@ -17,6 +17,7 @@ public class guihandler implements IGuiHandler{
 	public static final int extracrafting = 1;
 	public static final int ultracrafting = 2;
 	public static final int treebreeder = 3;
+	public static final int pedestal = 4;
 	
 
 	@Override
@@ -28,6 +29,8 @@ public class guihandler implements IGuiHandler{
 			return new containerultracrafting(player.inventory, (TileEntityultracrafting)world.getTileEntity(new BlockPos(x, y, z)));
 		case treebreeder:
 			return new containertreebreeder(player.inventory, (TileEntitytreebreeder)world.getTileEntity(new BlockPos(x, y, z)));
+		case pedestal:
+			return new containerpedestal(player.inventory, (TileEntitypedestal)world.getTileEntity(new BlockPos(x, y, z)));
 			default:
 				return null;
 		}
@@ -43,7 +46,10 @@ public class guihandler implements IGuiHandler{
 			return new guiultracrafting(getServerGuiElement(ID, player, world, x, y, z), player.inventory);	
 		case treebreeder:
 			return new guitreebreeder(getServerGuiElement(ID, player, world, x, y, z), player.inventory);
-		default: return null;
+		case pedestal:
+			return new guipedestal(getServerGuiElement(ID, player, world, x, y, z), player.inventory);
+		default:
+			return null;
 	    }
 	}
 

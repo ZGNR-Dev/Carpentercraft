@@ -10,8 +10,8 @@ import at.thoms.tileentitys.TileEntityextracrafting;
 import at.thoms.tileentitys.TileEntitytreebreeder;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.item.Item;
-import net.minecraft.util.text.translation.I18n;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -156,8 +156,8 @@ public class proxyclient extends proxycommons{
 		super.serverStarting(serverstarting);
 	}
 	
+	@Override
 	public String localize(String unlocalized, Object... args) {
-		return I18n.translateToLocalFormatted(unlocalized, args);
-	}
-	
+		return I18n.format(unlocalized, args);
+	}	
 }

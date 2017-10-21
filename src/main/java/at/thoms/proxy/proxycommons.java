@@ -75,6 +75,5 @@ public class proxycommons {
 	}
 	
 	public String localize(String unlocalized, Object... args) {
-		return I18n.format(unlocalized, args);
-	}
-}
+		return I18n.translateToLocalFormatted(unlocalized, args);
+	}}

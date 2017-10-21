@@ -15,6 +15,7 @@ import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 import at.thoms.Carpentercraft;
 import at.thoms.blocks.blocktypes.blockprimitivemachine;
+import at.thoms.clientonly.gui.guihandler;
 import at.thoms.tileentitys.TileEntitypedestal;
 import at.thoms.tileentitys.TileEntityultracrafting;
 
@@ -41,6 +42,7 @@ public class pedestal extends blockprimitivemachine<TileEntitypedestal> {
 				}
 				tile.markDirty();
 			} else {
+				player.openGui(Carpentercraft.instance, guihandler.pedestal, world, pos.getX(), pos.getY(), pos.getZ());
 				ItemStack stack = itemHandler.getStackInSlot(0);
 				if (stack != null) {
 					String localized = Carpentercraft.proxy.localize(stack.getUnlocalizedName() + ".name");
@@ -52,6 +54,8 @@ public class pedestal extends blockprimitivemachine<TileEntitypedestal> {
 		}
 		return true;
 	}	
+	
+	
 	@Override
 	public Class<TileEntitypedestal> getTileEntityClass() {
 		return TileEntitypedestal.class;
