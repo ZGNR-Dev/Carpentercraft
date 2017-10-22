@@ -1,6 +1,11 @@
 {
-    "parent": "block/cube_all",
+    "parent": "block/cube",
     "textures": {
-        "all": "carpentercraft:blocks/extracrafting"
+        "up": "carpentercraft:blocks/extracrafting_top",
+        "down":"carpentercraft:blocks/extracrafting_bottom",
+        "north": "carpentercraft:blocks/extracrafting_front",
+        "east": "carpentercraft:blocks/extracrafting_side",
+        "west": "carpentercraft:blocks/extracrafting_side",
+        "south": "carpentercraft:blocks/extracrafting_side"
     }
 }

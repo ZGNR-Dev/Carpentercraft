@@ -158,7 +158,7 @@ public class Carpentercraft {
     blockRegister(pedestal);
     blockRegister(treebreeder);
     
-    /* Ingot-Registry */
+//    /* Ingot-Registry
     
     GameRegistry.register(ingotbonium);
     GameRegistry.register(ingotbronze);
@@ -173,6 +173,7 @@ public class Carpentercraft {
     GameRegistry.register(ingotsilver);
     GameRegistry.register(ingotsteel);
     GameRegistry.register(ingottin);
+    
     
     /* Dust-Registry */
     

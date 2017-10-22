@@ -39,7 +39,7 @@ public class containerextracrafting extends Container
         this.ec = tileentity;
 		IItemHandler handler = ec.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null);
         //this.addSlotToContainer(new SlotCrafting(playerInventory.player, this.x4craftmatrix, this.x4craftresult, 0, 124, 35));
-        this.addSlotToContainer(new SlotCrafting(playerIn, x4craftmatrix, x4craftresult, 0, 8, 8));
+        /*this.addSlotToContainer(new SlotCrafting(playerIn, x4craftmatrix, x4craftresult, 0, 8, 8));
         this.addSlotToContainer(new SlotCrafting(playerIn, x4craftmatrix, x4craftresult, 1, 8, 26));
         this.addSlotToContainer(new SlotCrafting(playerIn, x4craftmatrix, x4craftresult, 2, 8, 44));
         this.addSlotToContainer(new SlotCrafting(playerIn, x4craftmatrix, x4craftresult, 3, 8, 62));
@@ -54,7 +54,7 @@ public class containerextracrafting extends Container
         this.addSlotToContainer(new SlotCrafting(playerIn, x4craftmatrix, x4craftresult, 12, 62, 8));
         this.addSlotToContainer(new SlotCrafting(playerIn, x4craftmatrix, x4craftresult, 13, 62, 26));
         this.addSlotToContainer(new SlotCrafting(playerIn, x4craftmatrix, x4craftresult, 14, 62, 44));
-        this.addSlotToContainer(new SlotCrafting(playerIn, x4craftmatrix, x4craftresult, 15, 62, 62));
+        this.addSlotToContainer(new SlotCrafting(playerIn, x4craftmatrix, x4craftresult, 15, 62, 62)); */
 
         
 
@@ -63,7 +63,7 @@ public class containerextracrafting extends Container
         {
             for (int j = 0; j < 4; ++j)
             {
-                this.addSlotToContainer(new Slot(this.x4craftmatrix, counting++, 30 + j * 18, 17 + i * 18));
+                this.addSlotToContainer(new Slot(this.x4craftmatrix, counting++, 8 + j * 18, 8 + i * 18));
             }
         }
 
@@ -95,7 +95,7 @@ public class containerextracrafting extends Container
     /**
      * Called when the container is closed.
      */
-    public void onContainerClosed(EntityPlayer playerIn)
+   /* public void onContainerClosed(EntityPlayer playerIn)
     {
         super.onContainerClosed(playerIn);
 
@@ -112,19 +112,13 @@ public class containerextracrafting extends Container
             }
         }
     }
+    */
 
     /**
      * Determines whether supplied player can use this container
      */
     	public boolean canInteractWith(EntityPlayer player) {
-    		if(!worldIn.isRemote && !player.isSpectator()){
-    			System.out.println("geht");
     		return true;
-    		}
-    		else{
-    			System.out.println("geht nicht");
-			return false;
-    		}
     }
 
     /**

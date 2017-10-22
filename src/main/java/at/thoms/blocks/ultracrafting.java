@@ -22,30 +22,16 @@ import net.minecraftforge.items.IItemHandler;
 public class ultracrafting extends blockprimitivemachine<TileEntityultracrafting> {
 
 	public ultracrafting() {
-		super("ultracrafting", Material.ROCK);
+		super("ultracrafting", Material.WOOD);
 	}
 	
 	@Override
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, @Nullable ItemStack heldItem, EnumFacing side, float hitX, float hitY, float hitZ) {
 		if (!world.isRemote) {
 			TileEntityultracrafting tile = getTileEntity(world, pos);
-			IItemHandler itemHandler = tile.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, side);
 			if (!player.isSneaking()) {
-				if (heldItem == null) {
-					player.setHeldItem(hand, itemHandler.extractItem(0, 64, false));
-				} else {
-					player.setHeldItem(hand, itemHandler.insertItem(0, heldItem, false));
-				}
-				tile.markDirty();
-			} else {
 				player.openGui(Carpentercraft.instance, guihandler.ultracrafting, world, pos.getX(), pos.getY(), pos.getZ());
-				ItemStack stack = itemHandler.getStackInSlot(0);
-				if (stack != null) {
-					String localized = Carpentercraft.proxy.localize(stack.getUnlocalizedName() + ".name");
-					player.addChatMessage(new TextComponentString(stack.stackSize + "x " + localized));
 				} else {
-					player.addChatMessage(new TextComponentString("Empty"));
-				}
 			}
 		}
 		return true;
