@@ -214,6 +214,9 @@ public class Carpentercraft {
     oredictionaryhandler.registerOreDictionary();
     craftingmanager.craftingregister();
     
+    GameRegistry.addRecipe(new at.thoms.oredict.extracraftingmanager());
+    GameRegistry.addRecipe(new at.thoms.extracraftingrecipes.pedestal());
+    
 
 	System.out.println("Donate to enter the free giveaway!");
     }

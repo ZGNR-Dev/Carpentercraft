@@ -7,6 +7,7 @@
         "north": "carpentercraft:blocks/woodpinelog_side",
         "east": "carpentercraft:blocks/woodpinelog_side",
         "south": "carpentercraft:blocks/woodpinelog_side",
-        "west": "carpentercraft:blocks/woodpinelog_side"
+        "west": "carpentercraft:blocks/woodpinelog_side",
+        "particle": "carpentercraft:blocks/woodpinelog_particle"
     }
 }

@@ -55,7 +55,7 @@ public class containerextracrafting extends Container
         this.addSlotToContainer(new SlotCrafting(playerIn, x4craftmatrix, x4craftresult, 13, 62, 26));
         this.addSlotToContainer(new SlotCrafting(playerIn, x4craftmatrix, x4craftresult, 14, 62, 44));
         this.addSlotToContainer(new SlotCrafting(playerIn, x4craftmatrix, x4craftresult, 15, 62, 62)); */
-
+		
         
 
         int counting = 0;
@@ -65,6 +65,10 @@ public class containerextracrafting extends Container
             {
                 this.addSlotToContainer(new Slot(this.x4craftmatrix, counting++, 8 + j * 18, 8 + i * 18));
             }
+        }
+        
+        for (int o = 0; o < 1; ++o){
+        	this.addSlotToContainer(new Slot(this.x4craftresult, 17, 124, 35));
         }
 
         for (int k = 0; k < 3; ++k)
@@ -89,7 +93,7 @@ public class containerextracrafting extends Container
      */
     public void onCraftMatrixChanged(IInventory inventoryIn)
     {
-        this.x4craftresult.setInventorySlotContents(0, CraftingManager.getInstance().findMatchingRecipe(this.x4craftmatrix, this.worldObj));
+        this.x4craftresult.setInventorySlotContents(17, CraftingManager.getInstance().findMatchingRecipe(this.x4craftmatrix, this.worldObj));
     }
 
     /**
