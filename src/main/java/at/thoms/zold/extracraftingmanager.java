@@ -1,4 +1,4 @@
-package at.thoms.oredict;
+/* package at.thoms.zold;
 
 import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.Item;
@@ -37,3 +37,4 @@ public class extracraftingmanager implements IRecipe{
 	}
 
 }
+ */
