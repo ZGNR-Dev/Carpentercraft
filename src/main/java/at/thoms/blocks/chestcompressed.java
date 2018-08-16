@@ -8,6 +8,7 @@ import at.thoms.clientonly.gui.guihandler;
 import at.thoms.tileentitys.TileEntitychestcompressed;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
@@ -22,6 +23,7 @@ public class chestcompressed extends blockprimitivemachine<TileEntitychestcompre
 
 	public chestcompressed() {
 		super("chestcompressed", Material.WOOD);
+		this.setCreativeTab(CreativeTabs.DECORATIONS);
 	}
 	
 	@Override
@@ -31,6 +33,7 @@ public class chestcompressed extends blockprimitivemachine<TileEntitychestcompre
 			if (!player.isSneaking()) {
 				player.openGui(Carpentercraft.instance, guihandler.chestcompressed, world, pos.getX(), pos.getY(), pos.getZ());
 				} else {
+				player.addChatMessage(new TextComponentString("Hallo Welt"));
 			}
 		}
 		return true;

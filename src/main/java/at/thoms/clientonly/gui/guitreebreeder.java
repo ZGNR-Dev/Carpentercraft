@@ -1,7 +1,7 @@
 package at.thoms.clientonly.gui;
 
 import at.thoms.Carpentercraft;
-import at.thoms.blocks.ultracrafting;
+import at.thoms.blocks.treebreeder;
 import at.thoms.utils.ModBlocks;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.renderer.GlStateManager;
@@ -30,9 +30,8 @@ public class guitreebreeder extends GuiContainer {
 	
 	@Override
 	protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY) {
-		 String Treebreeder = null;
-//		String name = I18n.format(Carpentercraft.treebreeder.getUnlocalizedName() + ".name");
-		fontRendererObj.drawString(Treebreeder, xSize / 2 - fontRendererObj.getStringWidth("Treebreeder") / 2, 6, 0x404040);
+		String name = I18n.format(ModBlocks.treebreeder.getUnlocalizedName() + ".name");
+		fontRendererObj.drawString(name, xSize / 2 - fontRendererObj.getStringWidth(name) / 2, 6, 0x404040);
 		fontRendererObj.drawString(playerInv.getDisplayName().getUnformattedText(), 8, ySize - 94, 0x404040);
 	}
 }

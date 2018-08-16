@@ -67,17 +67,6 @@ public class pedestal extends blockprimitivemachine<TileEntitypedestal> {
 		return new TileEntitypedestal();
 	}
 
-	@Override
-	public void breakBlock(World world, BlockPos pos, IBlockState state) {
-		TileEntitypedestal tile = getTileEntity(world, pos);
-		IItemHandler itemHandler = tile.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, EnumFacing.NORTH);
-		ItemStack stack = itemHandler.getStackInSlot(0);
-		if (stack != null) {
-			EntityItem item = new EntityItem(world, pos.getX(), pos.getY(), pos.getZ(), stack);
-			world.spawnEntityInWorld(item);
-		}
-		super.breakBlock(world, pos, state);
-	}
 	
 	
 }

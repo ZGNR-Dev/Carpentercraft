@@ -63,7 +63,8 @@ public class containerextracrafting extends Container
         {
             for (int j = 0; j < 4; ++j)
             {
-                this.addSlotToContainer(new Slot(this.x4craftmatrix, counting++, 8 + j * 18, 8 + i * 18));
+//                this.addSlotToContainer(new Slot(this.x4craftmatrix, counting++, 8 + j * 18, 8 + i * 18));
+                this.addSlotToContainer(new SlotCrafting(playerIn, x4craftmatrix, x4craftresult, counting++, 8 + j * 18, 8 + i * 18));
             }
         }
         
