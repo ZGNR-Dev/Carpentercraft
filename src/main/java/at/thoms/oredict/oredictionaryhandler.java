@@ -1,6 +1,7 @@
 package at.thoms.oredict;
 
 import at.thoms.Carpentercraft;
+import at.thoms.utils.ModBlocks;
 import net.minecraftforge.oredict.OreDictionary;
 
 public class oredictionaryhandler {
@@ -10,13 +11,14 @@ public class oredictionaryhandler {
 		
 		/* Ores */
 		
-		OreDictionary.registerOre("oreCopper", Carpentercraft.orecopper);
-		OreDictionary.registerOre("oreFakegold", Carpentercraft.orefakegold);
-		OreDictionary.registerOre("oreGold", Carpentercraft.oregold);
-		OreDictionary.registerOre("oreIron", Carpentercraft.oreiron);
-		OreDictionary.registerOre("oreOsmium", Carpentercraft.oreosmium);
-		OreDictionary.registerOre("oreTin", Carpentercraft.oretin);
-		OreDictionary.registerOre("oreSilver", Carpentercraft.oresilver);
+		OreDictionary.registerOre("oreCopper", ModBlocks.orecopper);
+		OreDictionary.registerOre("oreFakegold", ModBlocks.orefakegold);
+		OreDictionary.registerOre("oreGold", ModBlocks.oregold);
+		OreDictionary.registerOre("oreIron", ModBlocks.oreiron);
+		OreDictionary.registerOre("oreOsmium", ModBlocks.oreosmium);
+		OreDictionary.registerOre("oreTin", ModBlocks.oretin);
+		OreDictionary.registerOre("oreSilver", ModBlocks.oresilver);
+		OreDictionary.registerOre("orePlutonium", ModBlocks.oreplutonium);
 		
 		/* Ingots */
 		
@@ -24,6 +26,7 @@ public class oredictionaryhandler {
 		OreDictionary.registerOre("ingotOsmium", Carpentercraft.ingotosmium);
 		OreDictionary.registerOre("ingotTin", Carpentercraft.ingottin);
 		OreDictionary.registerOre("ingotSilver", Carpentercraft.ingotsilver);
+		OreDictionary.registerOre("ingotplutonium", Carpentercraft.ingotplutonium);
 		
 		/* Ingots Alloys */
 		

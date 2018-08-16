@@ -2,9 +2,7 @@ package at.thoms.proxy;
 
 import java.lang.ref.Reference;
 
-import at.thoms.tileentitys.TileEntityultracrafting;
-import at.thoms.tileentitys.TileEntitytreebreeder;
-import at.thoms.tileentitys.TileEntityextracrafting;
+import at.thoms.tileentitys.*;
 import at.thoms.Carpentercraft;
 import at.thoms.blocks.blocktypes.blockbasic;
 import net.minecraft.client.Minecraft;
@@ -37,6 +35,17 @@ public class proxycommons {
     	GameRegistry.registerTileEntity(TileEntityultracrafting.class, Carpentercraft.MODID + ":ultracrafting");
     	GameRegistry.registerTileEntity(TileEntityextracrafting.class, Carpentercraft.MODID + ":extracrafting");
     	GameRegistry.registerTileEntity(TileEntitytreebreeder.class, Carpentercraft.MODID + ":treebreeder");
+    	GameRegistry.registerTileEntity(TileEntitychestcompressed.class, Carpentercraft.MODID + ":chestcompressed");
+    	GameRegistry.registerTileEntity(TileEntityjustchest.class, Carpentercraft.MODID + ":justchest");
+    	GameRegistry.registerTileEntity(TileEntityhotchest.class, Carpentercraft.MODID + ":hotchest");
+    	GameRegistry.registerTileEntity(TileEntitysharpeningtable.class, Carpentercraft.MODID + ":sharpeningtable");
+    	GameRegistry.registerTileEntity(TileEntityhotcrafting.class, Carpentercraft.MODID + ":hotcrafting");
+    	GameRegistry.registerTileEntity(TileEntityscrapconverter.class, Carpentercraft.MODID + ":scrapconverter");
+    	GameRegistry.registerTileEntity(TileEntitytoolcrafter.class, Carpentercraft.MODID + ":toolcrafter");
+    	GameRegistry.registerTileEntity(TileEntityenergieStorage.class, Carpentercraft.MODID + ":energiestorage");
+    	GameRegistry.registerTileEntity(TileEntityblockcreator.class, Carpentercraft.MODID + ":blockcreator");
+    	GameRegistry.registerTileEntity(TileEntityenergiegenerator.class, Carpentercraft.MODID + ":energiegenerator");
+    	GameRegistry.registerTileEntity(TileEntityjustfurnace.class, Carpentercraft.MODID + ":justfurnace");
     }
     public void registerRenders()
     {

@@ -8,6 +8,7 @@ import at.thoms.Carpentercraft;
 import at.thoms.blocks.*;
 import at.thoms.items.*;
 import at.thoms.oredict.oredictionaryhandler;
+import at.thoms.utils.ModBlocks;
 
 public class craftingmanager {
 
@@ -26,6 +27,7 @@ public class craftingmanager {
 	    ItemStack stackingotfire = new ItemStack(Carpentercraft.ingotfire);
 	    ItemStack stackingotdiamondium = new ItemStack(Carpentercraft.ingotdiamondium);
 	    ItemStack stackStone = new ItemStack(Blocks.STONE);
+	    ItemStack stackCobbleStone = new ItemStack(Blocks.COBBLESTONE);
 	    ItemStack stackingotcopper = new ItemStack(Carpentercraft.ingotcopper);
 	    ItemStack stackCoal = new ItemStack(Items.COAL);
 	    ItemStack stackpelletccoal = new ItemStack(Carpentercraft.pelletcoal, 8);
@@ -49,9 +51,13 @@ public class craftingmanager {
 	    ItemStack stackingotbonium = new ItemStack(Carpentercraft.ingotbonium);
 	    ItemStack stackingotcarbonium = new ItemStack(Carpentercraft.ingotcarbonium);
 	    ItemStack stackingotosmiuum = new ItemStack(Carpentercraft.ingotosmium);
-	    ItemStack stackoreosmium = new ItemStack(Carpentercraft.oreosmium);
-	    ItemStack stackoresilver = new ItemStack(Carpentercraft.oresilver);
-	    ItemStack stackoretin = new ItemStack(Carpentercraft.oretin);
+	    ItemStack stackoreosmium = new ItemStack(ModBlocks.oreosmium);
+	    ItemStack stackoresilver = new ItemStack(ModBlocks.oresilver);
+	    ItemStack stackoretin = new ItemStack(ModBlocks.oretin);
+	    ItemStack stackChainHelmet = new ItemStack(Items.CHAINMAIL_HELMET);
+	    ItemStack stackChainChest = new ItemStack(Items.CHAINMAIL_CHESTPLATE);
+	    ItemStack stackChainLeggings = new ItemStack(Items.CHAINMAIL_LEGGINGS);
+	    ItemStack stackChainBoots = new ItemStack(Items.CHAINMAIL_BOOTS);
 	    
 	    
 	    		/* Items */
@@ -78,16 +84,29 @@ public class craftingmanager {
 	      Character.valueOf('p'), stackpelletcoal, Character.valueOf('b'), stackBone, Character.valueOf('i'), stackIron_Ingot });
 	    GameRegistry.addRecipe(stackCoal, new Object[] { "ppp", "p p", "ppp", 
 	  	      Character.valueOf('p'), stackpelletcoal});
+	    GameRegistry.addRecipe(stackChainHelmet, new Object[] { "ccc", "c c", "   ",
+		    	  Character.valueOf('c'), stackCobbleStone});
+	    GameRegistry.addRecipe(stackChainChest, new Object[] { "c c", "ccc", "ccc",
+		    	  Character.valueOf('c'), stackCobbleStone});
+	    GameRegistry.addRecipe(stackChainChest, new Object[] { "ccc", "ccc", "c c",
+		    	  Character.valueOf('c'), stackCobbleStone});
+	    GameRegistry.addRecipe(stackChainLeggings, new Object[] { "ccc", "c c", "c c",
+		    	  Character.valueOf('c'), stackCobbleStone});
+	    GameRegistry.addRecipe(stackChainBoots, new Object[] { "c c", "c c", "   ",
+		    	  Character.valueOf('c'), stackCobbleStone});
+	    GameRegistry.addRecipe(stackChainBoots, new Object[] { "   ", "c c", "c c",
+		    	  Character.valueOf('c'), stackCobbleStone});
+	    
 
 	    	    
 	    GameRegistry.addShapelessRecipe(stackpelletccoal, new Object[] { stackCoal });
 	    
-	    GameRegistry.addSmelting(Carpentercraft.orecopper, stackingotcopper, 100.0F);
-	    GameRegistry.addSmelting(Carpentercraft.oretin, stackingottin, 100.0F);
-	    GameRegistry.addSmelting(Carpentercraft.oreosmium, stackingotosmium, 100.0F);
-	    GameRegistry.addSmelting(Carpentercraft.orefakegold, stackGold_Nugget, 100.0F);
-	    GameRegistry.addSmelting(Carpentercraft.oregold, stackGold_Ingot, 100.0F);
-	    GameRegistry.addSmelting(Carpentercraft.oreiron, stackIron_Ingot, 100.0F);
+	    GameRegistry.addSmelting(ModBlocks.orecopper, stackingotcopper, 100.0F);
+	    GameRegistry.addSmelting(ModBlocks.oretin, stackingottin, 100.0F);
+	    GameRegistry.addSmelting(ModBlocks.oreosmium, stackingotosmium, 100.0F);
+	    GameRegistry.addSmelting(ModBlocks.orefakegold, stackGold_Nugget, 100.0F);
+	    GameRegistry.addSmelting(ModBlocks.oregold, stackGold_Ingot, 100.0F);
+	    GameRegistry.addSmelting(ModBlocks.oreiron, stackIron_Ingot, 100.0F);
 
 	}
 }

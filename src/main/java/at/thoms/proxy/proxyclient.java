@@ -1,17 +1,16 @@
 package at.thoms.proxy;
 
-import java.nio.channels.NetworkChannel;
-
 import at.thoms.Carpentercraft;
 import at.thoms.blocks.blocktypes.blockbasic;
+import at.thoms.blocks.blocktypes.blockmachine;
 import at.thoms.blocks.blocktypes.blockprimitivemachine;
 import at.thoms.clientonly.gui.guihandler;
-import at.thoms.tileentitys.TileEntityextracrafting;
-import at.thoms.tileentitys.TileEntitytreebreeder;
+import at.thoms.utils.ModBlocks;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemArmor;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -21,7 +20,6 @@ import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.event.FMLServerStoppedEvent;
 import net.minecraftforge.fml.common.event.FMLServerStoppingEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class proxyclient extends proxycommons{
 
@@ -30,36 +28,55 @@ public class proxyclient extends proxycommons{
 		
 	  /* Ore-Registering */
 		
-		registerBlockModel(Carpentercraft.orecopper);
-		registerBlockModel(Carpentercraft.orefakegold);
-		registerBlockModel(Carpentercraft.oregold);
-		registerBlockModel(Carpentercraft.oreiron);
-		registerBlockModel(Carpentercraft.oreosmium);
-		registerBlockModel(Carpentercraft.oretin);
-		registerBlockModel(Carpentercraft.oreosmium);
-		registerBlockModel(Carpentercraft.oretin);
-		registerBlockModel(Carpentercraft.oresilver);
-		registerBlockModel(Carpentercraft.oretungsten);
-		registerBlockModel(Carpentercraft.oremystery);
+		registerBlockModel(ModBlocks.orecopper);
+		registerBlockModel(ModBlocks.orefakegold);
+		registerBlockModel(ModBlocks.oregold);
+		registerBlockModel(ModBlocks.oreiron);
+		registerBlockModel(ModBlocks.oreosmium);
+		registerBlockModel(ModBlocks.oretin);
+		registerBlockModel(ModBlocks.oreosmium);
+		registerBlockModel(ModBlocks.oreplutonium);
+		registerBlockModel(ModBlocks.oretin);
+		registerBlockModel(ModBlocks.oresilver);
+		registerBlockModel(ModBlocks.oretungsten);
+		registerBlockModel(ModBlocks.oremystery);
 	
 		
-	  /* Block-Registering */
+	    /* Block-Registering */
 		
-		registerBlockModel(Carpentercraft.glasglow);
-		registerBlockModel(Carpentercraft.sandglow);
-		registerBlockModel(Carpentercraft.glassglowraw);
-		registerBlockModel(Carpentercraft.glasshardened);
-		registerBlockModel(Carpentercraft.woodbloodtier1);
-		registerBlockModel(Carpentercraft.extracrafting);
+		registerBlockModel(ModBlocks.glasglow);
+		registerBlockModel(ModBlocks.sandglow);
+		registerBlockModel(ModBlocks.glassglowraw);
+		registerBlockModel(ModBlocks.glasshardened);
+		registerBlockModel(ModBlocks.extracrafting);
 		
-		/* Wood-Registering */
+		/* Baum-Registering */
 		
-		registerBlockModel(Carpentercraft.woodpinelog);
+		registerBlockModel(ModBlocks.woodpinelog);
 		
-	  /* Primitive Maschine-Registering */
+		/* Holz-Registering */
 		
-		registerBlockPrimitiveMachineModel(Carpentercraft.ultracrafting);
-		registerBlockPrimitiveMachineModel(Carpentercraft.treebreeder);
+		registerBlockModel(ModBlocks.woodblood);
+		
+	    /* Primitive Maschine-Registering */
+		
+		registerBlockPrimitiveMachineModel(ModBlocks.ultracrafting);
+//		registerBlockPrimitiveMachineModel(ModBlocks.treebreeder);
+		registerBlockPrimitiveMachineModel(ModBlocks.chestcompressed);
+		registerBlockPrimitiveMachineModel(ModBlocks.justchest);
+		registerBlockPrimitiveMachineModel(ModBlocks.hotchest);
+		registerBlockPrimitiveMachineModel(ModBlocks.sharpeningtable);
+		registerBlockPrimitiveMachineModel(ModBlocks.hotcrafting);
+		registerBlockPrimitiveMachineModel(ModBlocks.scrapconverter);
+		registerBlockPrimitiveMachineModel(ModBlocks.toolcrafter);
+		registerBlockPrimitiveMachineModel(ModBlocks.blockcreator);
+		registerBlockPrimitiveMachineModel(ModBlocks.justfurnace);
+		
+		/* Mascjinen-Registering */
+		
+		registerBlockMachineModel(ModBlocks.energiestorage);
+		registerBlockMachineModel(ModBlocks.energiegenerator);
+		
 		
 	  /* Ingot-Registering */
 		
@@ -72,10 +89,20 @@ public class proxyclient extends proxycommons{
 		registerItemModel(Carpentercraft.ingotfire);
 		registerItemModel(Carpentercraft.ingotlumium);
 		registerItemModel(Carpentercraft.ingotosmium);
+		registerItemModel(Carpentercraft.ingotplutonium);
 		registerItemModel(Carpentercraft.ingotsignalum);
 		registerItemModel(Carpentercraft.ingotsilver);
 		registerItemModel(Carpentercraft.ingotsteel);
 		registerItemModel(Carpentercraft.ingottin);
+		
+		/* Tool-Registering */
+		
+		registerItemModel(Carpentercraft.diamondpickaxesharpened);
+		registerItemModel(Carpentercraft.goldpickaxesharpened);
+		registerItemModel(Carpentercraft.ironpickaxesharpened);
+		registerItemModel(Carpentercraft.ironaxesharpened);
+		registerItemModel(Carpentercraft.axecarpenter);
+		registerItemModel(Carpentercraft.axetimber);
 		
 		/* Dust-Registering */
 		
@@ -88,27 +115,54 @@ public class proxyclient extends proxycommons{
 		registerItemModel(Carpentercraft.dustsignalum);
 		registerItemModel(Carpentercraft.duststeel);
 		
+		/* Armor-Registering */
+		
+		registerItemArmorModel(Carpentercraft.armorpowerHelmet);
+		registerItemArmorModel(Carpentercraft.armorpowerChestplate);
+		registerItemArmorModel(Carpentercraft.armorpowerLeggings);
+		registerItemArmorModel(Carpentercraft.armowpowerBoots);
+	
+		
 		/* Item-Registering */
 		
 		registerItemModel(Carpentercraft.pelletcoal);
 		registerItemModel(Carpentercraft.bee);
+		registerItemModel(Carpentercraft.whetstone);
+		registerItemModel(Carpentercraft.justbackpack);
+		registerItemModel(Carpentercraft.backpackzero);
+		registerItemModel(Carpentercraft.woodTabIcon);
 		
 	    /* Tileentity-Registering */
 		
 		
 	}
 	
-	
+	@Override
+	public void registerRenders() {
+			ModBlocks.registerRenders();
+		
+		
+		super.registerRenders();
+	}
 
 	public static void registerItemModel(Item item){
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(item, 0, new ModelResourceLocation(item.getRegistryName(), "inventory"));
 	}
+	
+	public static void registerItemArmorModel(ItemArmor item) {
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(item, 0, new ModelResourceLocation(item.getRegistryName(), "inventory"));
+	}
+	
 	
 	public static void registerBlockModel(blockbasic block){
 		registerItemModel(Item.getItemFromBlock(block));
 	}
 	
 	public static void registerBlockPrimitiveMachineModel(blockprimitivemachine block){
+		registerItemModel(Item.getItemFromBlock(block));
+	}
+	
+	public static void registerBlockMachineModel(blockmachine block) {
 		registerItemModel(Item.getItemFromBlock(block));
 	}
 	
@@ -125,6 +179,8 @@ public class proxyclient extends proxycommons{
 		NetworkRegistry.INSTANCE.registerGuiHandler(Carpentercraft.instance, new guihandler());
 		
 	}
+	
+	
 	
 	@Override
 	public void postInit(FMLPostInitializationEvent postinit){
